@@ -14,6 +14,23 @@ const e = [1, 2, 3] as const;
 
 https://www.typescriptlang.org/play/?strict=false&noImplicitAny=false&ts=5.1.6#code/PQKgUA2gBIHN2DgTVAxg4HBqoF0yBFRwGe1UCrzgOy2Aa41ACzImADPYBhDUAhgDQBGDAxgwCYmADC4KHjgAuNRAgDVCogFtHA3a2AYmqiAU2cAGHYAIWwDJ1gFLGA-FChgAtFBr0SCqIAaawD81gH06oAQSh9AC6NRAqBNFALquAficAcg6t37aTI3lTSygAITteRxcPb18DVkDgqwBhCKi3Lx89Ay45IPMrABE05wzY7NoAU0SCqABREujMsBBgMDAAG0qAF3ooAF4oAEYABgBuMFYAewA7AGdepgGoACZxydmFqFZliCGGVbQJ6fnejl39qAAiAAtKjo6pq4PugCcAV0qjjdOoSouDisDgBmND0ObbTbdCZgUBQCAARXeAEsAF5ggx0HgCKCAFm7AOOjgB5xwA6HXkVBooK0wN0AJ4AB3+tkGM3eAFsmJVXjC4YiUei-FAAhFBASSWS1JoqbSGWFlmtuSB4Ui0RjaAlhXiiaSFOTJW1pf9Usy2RzXhBvrDFbyVQLcnwRVrxRSpfT-sVBgAKFnszkAHwWr2RMwA5r6mFMpl06DMAJTmhVKvmqv7Yh1inUSyn6131AFA0EJiAAFUqCzBgBvRwAMdYAA3sADIuAFKbnIBXpsAIuNQQAtM4AbBcAGquVqCAEHHADqrUEAlWOAEebSdQnN3AAOTUEAUqOAVqHABNNgBOmrNgZGsulTV69ADe9QAju86B0DnUAB4M1jdA4AOSm3WsMxpUAAvlAAGavKas64AAIGjorA3GeXQhqWwDvN0yIdHMVwwgaUAlgsyR0HMpa7GAWhXje3QADx1CeZ4EdYBzeqaAB8VEMDh9TXpUt5ESRHQEaEgIjDRdG4YxzHEaebHJBRJqcua3H0XhTGEQJpGFAcXqia8UC+lAAZBsGKmChGUaxuJtGSXxMmsURBx7ICIJoDRYDfEAA
 
+```typescript
+/* [Quiz] 변수 a의 타입은 무엇으로 추론될까요? */
+type A = number;
+
+/* [Quiz] 변수 b의 타입은 무엇으로 추론될까요? */
+type B = 20;
+
+/* [Quiz] 변수 c의 타입은 무엇으로 추론될까요? */
+type C = number[];
+
+/* [Quiz] 변수 d의 타입은 무엇으로 추론될까요? */
+type D = (number | string | boolean)[];
+
+/* [Quiz] 변수 e의 타입은 무엇으로 추론될까요? */
+type E = [1, 2, 3];
+```
+
 ## Quiz 2.
 
 ---
@@ -39,3 +56,20 @@ type DogCat = never;
 ```
 
 https://www.typescriptlang.org/play/?strict=false&noImplicitAny=false&ts=5.1.6#code/PQKgUA2gBIHN2DgTVAxg4HBqoF0yBOmwMuNUCljgNrWA1A4LargIuNSAznYI4TgGquApTVAIIB2AlgLYCGANgDRQAIgHsA5gGEuAFwAUyQKcNgF3GAlFEADC4FDxioBExwIyDtQByDeMAFpm7bj3UbAAuNCx1wD7jUQBhDgEeaokqU9cfAEeOArUOAE02YAHSm9hLS1nYiooqACeOe0hoh4SDAYGCgUBAAigCubABeaFCAIqOAGe2AGuNQgCrzgDstgD6dUHqALqtQgCRjgBqdLXCADjWGeFAZYFIAngAOAKaRUAC8UADeYFBQLFwc0wBcUADOUgBObCyiANyrUADGwjzCh7sHx6cXAL4XY1OzXgvLlxtbR5HE7nS5cUQ7dYFDgAI2mhzeHwmM3MnF4vziUAAPskpBdkbM4j9FpiAGS4j45CAAFWmBzKgBvRwAMdYAA3sADIuMQCoE4BXpoogBaZwA2C7QmVBACDjgB1VqCASrG3IAdDtcnNogAHJqCAKVHgpgRpkbiwDlAuBZeHtdqw0TwIGVFhBLis1msAZCAESAAsXAJLdikdfEuaxudweUEdMMOwgA7ixPZdXl61ra7Q7do7AChTgA-uiN2-UQ3YARgADNGoFGwGgPjq9QATMReXZE6KLWPxgMKD358GQgBM+d99wTgA05wARk4BJgYj7zAQA
+
+```typescript
+type Dog = {
+    name: string;
+    color: string;
+};
+
+type Cat = {
+    name: string;
+    age: number;
+};
+
+type Animal = Dog | Cat;
+type DogCat = Dog & Cat;
+```
+
+DogCat의 경우, 타입을 Dog | Cat으로 해도 오류를 발생시키지 않았는데, 해당 객체(dogCat)에 필요한 모든 프로퍼티가 들어있고 이는 구조적 타이핑이라는 타입스크립트 특성 때문이라고 생각했다.
