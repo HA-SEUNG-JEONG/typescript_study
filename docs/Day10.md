@@ -17,3 +17,17 @@ function getLastValue<T>(data: [...unknown[], T]) {
     return data[data.length - 1] as T;
 }
 ```
+
+## Quiz3.
+
+https://www.typescriptlang.org/play/?ts=5.1.6#code/PQKgUA2gBIHN2DgTVAxg4HBqoF0yBOmwMuNUCljgNrWA1A4LargIuNSAznYI4TgGquApTVALYCGADlIBargGEOAa41IAGFwKHjFAoBA12oA5BvGAC0zdl26NACeOAUHsAlQ4BsFwL2dgDqWogBh7AL6NRAKl2AcQcA7LQrYVAHz2AGVqqADlqVDAE02YAdHKgAmZH5AE87kQAGe7igWACdowB+aqABjFgAbFIAjFkSAawpAbB7AVqGvX3kY6KNjfkAKrrc8REAF0aTUjKzspUAfTqhuQEjVwB1VqEAGmrjOk0AdDqgqwBFRqEAMHsANNcBLVeKwEGAwMFAoCABFAFcASwAvNChJwAz2-kAVeatO7kBUCak8KFWwADNdgDtEgBd9gHsPrYADwAFQANABVAB8AAoygAuEEQNBgpppTI5eEw-bfACmTERAEoALxQiGEqAAbzAUCgKVx3yg0VxAGddilGcStmgANw0qCvP7lGH0xn7KBcgAMPKg4qBUVi3npHwA5t8ABYy-YAam1FOptNpzLZHO8bF2LPVMOS6NacNiEH2aEJhL5tIAvvzmd9dtFAcb2d8+Z6NiAtiDWd8ToAb0cADHWAAN7AAyLjDugFemiiAFpmtLRY1BACDj-UAlWOAEebxvdaIAByaggClRoqYZ5rfZMNhCxmUqAAUQAjrtUqiOwAPNi4n6ogByf2+AEEPgBPKDugXRP5MKAAIgAAt9Z8PZIl1c1carWcBdr8Uiy13zEgCWYzvokAIzwqAfXZMdK46LIiW2GEQR9UX8VEAGYUSgbE8SYClSVlKDXTAG8PjvKAH38F872ifZVR-LlWDYf9AICUDwMg-EYKhOD8W8b4-gAZW+LDVRhF0+TAbdhygCM7wAYRYFlWV-CB+UHYcfiBCdpznIEAAUYhYJgGS-FkgQ43E-leWwoQgSU0ChKEwREocR2+CTJxnWdZPkxS8WiFS1I0rSAL0gyjLE0zu17FJVJ3dTNIfIi3w-L9kX0wzaVEkygU81IfOHRy0NRTDsJVUKoTAXkwCAA
+
+```typescript
+function map<T, U>(arr: T[], callback: (item: T) => U) {
+    let result = [];
+    for (let i = 0; i < arr.length; i++) {
+        result.push(callback(arr[i]));
+    }
+    return result;
+}
+```
